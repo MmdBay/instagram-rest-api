@@ -6,7 +6,7 @@ from starlette.responses import RedirectResponse, JSONResponse
 from routers import (
     auth, media, video, photo, user,
     igtv, clip, album, story,
-    insights
+    insights, highligh
 )
 
 app = FastAPI()
@@ -19,6 +19,7 @@ app.include_router(igtv.router)
 app.include_router(clip.router)
 app.include_router(album.router)
 app.include_router(story.router)
+app.include_router(highligh.router)
 app.include_router(insights.router)
 
 
