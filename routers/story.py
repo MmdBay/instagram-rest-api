@@ -68,14 +68,14 @@ async def story_like(sessionid: str = Form(...),
     cl = clients.get(sessionid)
     return cl.story_like(story_id, revert)
 
-@router.post("/unlike", response_model=bool)
-async def story_unlike(sessionid: str = Form(...),
-                     story_id: str = Form(...),
-                     clients: ClientStorage = Depends(get_clients)) -> bool:
-    """Unlike a Story
-    """
-    cl = clients.get(sessionid)
-    return cl.story_unlike(story_pks)
+# @router.post("/unlike", response_model=bool)
+# async def story_unlike(sessionid: str = Form(...),
+#                      story_id: str = Form(...),
+#                      clients: ClientStorage = Depends(get_clients)) -> bool:
+#     """Unlike a Story
+#     """
+#     cl = clients.get(sessionid)
+#     return cl.story_unlike(story_pks)
 
 
 @router.get("/pk_from_url")
