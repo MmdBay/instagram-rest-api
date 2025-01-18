@@ -30,12 +30,12 @@ async def story_user_stories(sessionid: str = Form(...),
 @router.post("/info", response_model=Story)
 async def story_info(sessionid: str = Form(...), 
                      hight_pk: int = Form(...), 
-                     use_cache: Optional[bool] = Form(True), 
+                    #  use_cache: Optional[bool] = Form(True), 
                      clients: ClientStorage = Depends(get_clients)) -> Story:
     """Get Story by pk or id
     """
     cl = clients.get(sessionid)
-    return cl.highlight_info_v1(hight_pk, use_cache)
+    return cl.highlight_info_v1(hight_pk)
 
 
 # @router.post("/delete", response_model=bool)
