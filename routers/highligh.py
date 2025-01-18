@@ -27,11 +27,11 @@ async def story_user_stories(sessionid: str = Form(...),
     return cl.user_highlights_v1(user_id, amount)
 
 
-@router.post("/info", response_model=any)
+@router.post("/info", response_model=List)
 async def story_info(sessionid: str = Form(...), 
                      hight_pk: int = Form(...), 
                     #  use_cache: Optional[bool] = Form(True), 
-                     clients: ClientStorage = Depends(get_clients)) -> any:
+                     clients: ClientStorage = Depends(get_clients)) -> List:
     """Get Story by pk or id
     """
     cl = clients.get(sessionid)
